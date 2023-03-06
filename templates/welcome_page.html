@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/welcome.css' %}">
+</head>
+
+
+<div class="container">
+    <div class="center-contents">
+        <h1>What's Your Name?</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="ENTER">
+        </form>
+        <a href="{% url 'home' %}">I'm not telling you!</a>
+    </div>
+</div>
+{% endblock content %}
